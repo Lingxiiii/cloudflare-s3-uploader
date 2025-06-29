@@ -413,37 +413,6 @@
                 }
             }
             
-            uploadForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                progressContainer.style.display = 'block';
-                progressBar.style.width = '0%';
-                statusText.textContent = '正在上传...';
-                submitBtn.disabled = true;
-                
-                let progress = 0;
-                const interval = setInterval(() => {
-                    progress += Math.random() * 10;
-                    if (progress >= 100) {
-                        progress = 100;
-                        clearInterval(interval);
-
-                        setTimeout(() => {
-                            statusText.textContent = '上传成功!';
-                            submitBtn.disabled = false;
-
-                            setTimeout(() => {
-                                progressContainer.style.display = 'none';
-                                alert('文件上传成功！下载链接已生成。');
-                            }, 1500);
-                        }, 500);
-                    }
-                    
-                    progressBar.style.width = `${progress}%`;
-                }, 200);
-            });
-            
-
             setTimeout(() => {
                 const turnstileIframe = document.querySelector('.cf-turnstile iframe');
                 if (turnstileIframe) {
