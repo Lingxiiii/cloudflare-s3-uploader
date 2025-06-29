@@ -21,6 +21,23 @@ const sanitizeFilename = (name: string): string => {
   return name.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
 };
 
+const generateUniqueId = (): string => {
+  const timestamp = Date.now();
+  const random = Math.floor(Math.random() * 90000) + 10000;
+  return `${timestamp}${random}`;
+};
+
+const sanitizeFilename = (name: string): string => {
+  const uniqueId = generateUniqueId();
+  const extIndex = name.lastIndexOf('.');  
+  if (extIndex > 0) {
+    const baseName = name.substring(0, extIndex);
+    const extension = name.substring(extIndex);
+    return `${baseName}_${uniqueId}${extension}`.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
+  }
+  return `${name}_${uniqueId}`.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
+};
+
 function getReturnPage(statuscode: number, title: string, message: string): Response {
 var htmltemplate= `<!DOCTYPE html>
 <html lang="zh-CN">
