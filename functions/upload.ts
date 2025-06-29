@@ -17,9 +17,9 @@ class TurnstileResponse {
   hostname: string;
 }
 
-const sanitizeFilename = (name: string): string => {
-  return name.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
-};
+//const sanitizeFilename = (name: string): string => {
+//  return name.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
+//};
 
 const generateUniqueId = (): string => {
   const timestamp = Date.now();
