@@ -18,7 +18,7 @@ class TurnstileResponse {
 }
 
 const sanitizeFilename = (name: string): string => {
-  return name.replace(/[^\w\.\-]/g, '_');
+  return name.replace(/[^\w\u4e00-\u9fff\.\-]/g, '_');
 };
 
 function getReturnPage(statuscode: number, title: string, message: string): Response {
