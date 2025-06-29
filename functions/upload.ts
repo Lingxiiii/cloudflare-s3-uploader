@@ -186,7 +186,6 @@ var htmltemplate= `<!DOCTYPE html>
                 ${title}
             </div>
             <div class="card-body">
-                下载链接
                 <div class="download-link">
                     <p>${message}</p>
                 </div>
